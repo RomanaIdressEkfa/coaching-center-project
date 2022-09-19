@@ -1,0 +1,7 @@
+.img{
+    height: 10px !important;
+    width: auto;
+}
+.min-h-screen{
+    min-height: 80vh !important;
+}
