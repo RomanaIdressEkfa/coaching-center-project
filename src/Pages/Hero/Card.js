@@ -1,39 +1,27 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
+import './Card.css';
 
 const Card = () => {
+    // const cardCreate = [
+    //     { "id": 1, "name": "Education", "description": "An education summary is the section of your resume where you highlight your academic qualifications and achievements" },
+    //     { "id": 2, "name": "Education", "description": "An education summary is the section of your resume where you highlight your academic qualifications and achievements" },
+    //     { "id": 3, "name": "Education", "description": "An education summary is the section of your resume where you highlight your academic qualifications and achievements" },
+    // ]
+    const [cards, setCards] = useState([]);
+    useEffect(() => {
+        fetch('data.json')
+            .then(res => res.json())
+            .then(data => setCards(data));
+    }, [cards]);
 
     return (
-        <div className='flex justify-center items-center gap-20'>
-            <div class="card card-compact w-96 bg-base-100 shadow-xl ">
-                <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
+        <div>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-2'>
+                {
+                    cards.map(card => <Card key={card.id} card={card}></Card>)
+                }
             </div>
-            <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
-            </div>
+
         </div>
     );
 };

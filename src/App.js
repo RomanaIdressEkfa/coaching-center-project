@@ -4,6 +4,7 @@ import Carousel from './Pages/Hero/Carousel';
 import Home from './Pages/Hero/Home';
 import Home2 from './Pages/Hero/Home2';
 import Home3 from './Pages/Hero/Home3';
+import Footer from './Pages/Shares/Footer';
 import Navbar from './Pages/Shares/Navbar';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Home3></Home3>
       <Card></Card>
       <Carousel></Carousel>
+      <Footer></Footer>
     </div>
   );
 }
